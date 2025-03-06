@@ -25,3 +25,5 @@ External Requirements:
 ### dependencies
  - libmagickwand-dev
  - ripgrep
+ - npm
+ - python3-venv

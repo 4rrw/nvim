@@ -21,6 +21,13 @@ External Requirements:
   - If you want to write Typescript, you need `npm`
   - If you want to write Golang, you will need `go`
   - etc.
+###
+Molten requires pynvim and jupyter-client
+```
+uv venv ~/.local/nvim-venv/
+uv source ~/.local/nvim-venv/
+uv pip install pynvim jupyter-client
+```
 
 ### dependencies
  - libmagickwand-dev

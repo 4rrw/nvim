@@ -294,7 +294,6 @@ require('lazy').setup({
             end,
           },
           find_files = {
-            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
             hidden = true,
           },
         },
@@ -519,7 +518,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- python
-        basedpyright = {},
+        pyright = {},
         ruff = {},
         -- yaml
         yamlls = {},

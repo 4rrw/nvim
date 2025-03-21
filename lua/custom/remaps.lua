@@ -17,6 +17,12 @@ vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tms<CR>')
 
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
+vim.keymap.set('n', 'J', '<C-d>')
+vim.keymap.set('n', 'K', '<C-u>')
+vim.keymap.set('n', 'gh', vim.lsp.buf.hover)
+
 -- remaping tab
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character

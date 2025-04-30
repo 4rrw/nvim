@@ -25,7 +25,8 @@ External Requirements:
 Molten requires pynvim and jupyter-client
 ```
 uv venv ~/.local/nvim-venv/
-uv source ~/.local/nvim-venv/
+source  ~/.local/nvim-venv/bin/activate.fish
+// (or .sh if youre not using fish)
 uv pip install pynvim jupyter-client
 ```
 

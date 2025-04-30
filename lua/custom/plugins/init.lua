@@ -223,7 +223,7 @@ return {
       -- these are examples, not defaults. Please see the readme
       vim.g.molten_image_provider = 'image.nvim'
       vim.g.molten_output_win_max_height = 20
-      vim.g.molten_virt_text_output = true
+      vim.g.molten_virt_text_output = false
       vim.g.python3_host_prog = vim.fn.expand '~/.local/nvim-venv/bin/python3'
 
       vim.g.molten_auto_init_behavior = 'init'
@@ -233,21 +233,21 @@ return {
       -- vim.keymap.set('n', '<localleader>rl', ':MoltenEvaluateLine<CR>', { silent = true, desc = 'evaluate line' })
       -- vim.keymap.set('n', '<localleader>rr', ':MoltenReevaluateCell<CR>', { silent = true, desc = 're-evaluate cell' })
       -- vim.keymap.set('v', '<localleader>r', ':<C-u>MoltenEvaluateVisual<CR>gv', { silent = true, desc = 'evaluate visual selection' })
-      -- vim.keymap.set('n', '<localleader>os', ':noautocmd MoltenEnterOutput<CR>', { silent = true, desc = 'show/enter output' })
-      -- -- Run code in between cell markers (supports both #%% and # %%)
+      vim.keymap.set('n', '<localleader>os', ':noautocmd MoltenEnterOutput<CR>', { silent = true, desc = 'show/enter output' })
+      vim.keymap.set('n', '<localleader>mr', ':MoltenRestart<CR>', { silent = true, desc = '[M]olten [R]estart' })
       -- -- Dynamic Kernel Initialization based on Python Virtual Environment
-      -- vim.api.nvim_set_keymap('n', '<localleader>mp', '', {
-      --   callback = function()
-      --     local kernel_name = ensure_kernel_for_venv()
-      --     if kernel_name then
-      --       vim.cmd(('MoltenInit %s'):format(kernel_name))
-      --     else
-      --       vim.notify('No kernel to initialize.', vim.log.levels.WARN)
-      --     end
-      --   end,
-      --   desc = 'Initialize for Python venv',
-      --   silent = true,
-      -- })
+      vim.api.nvim_set_keymap('n', '<localleader>mi', '', {
+        callback = function()
+          local kernel_name = ensure_kernel_for_venv()
+          if kernel_name then
+            vim.cmd(('MoltenInit %s'):format(kernel_name))
+          else
+            vim.notify('No kernel to initialize.', vim.log.levels.WARN)
+          end
+        end,
+        desc = '[m]olten [i]nitialize',
+        silent = true,
+      })
     end,
   },
   {

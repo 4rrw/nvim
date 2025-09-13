@@ -50,117 +50,117 @@ local function ensure_kernel_for_venv()
 end
 
 return {
-  {
-    'christoomey/vim-tmux-navigator',
-    config = function()
-      vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>')
-      vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>')
-      vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>')
-      vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>')
-    end,
-  },
-  {
-    'danymat/neogen',
-    opts = true,
-    keys = {
-      {
-        '<leader>a',
-        function()
-          require('neogen').generate()
-        end,
-        desc = 'Add Docstring',
-      },
-    },
-  },
-  {
-    'GCBallesteros/jupytext.nvim',
-    config = function()
-      require('jupytext').setup {
-        style = 'markdown',
-        output_extension = 'md',
-        force_ft = 'markdown',
-      }
-    end,
-  },
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
-  {
-    'GCBallesteros/NotebookNavigator.nvim',
-    keys = {
-      {
-        ']h',
-        function()
-          require('notebook-navigator').move_cell 'd'
-        end,
-      },
-      {
-        '[h',
-        function()
-          require('notebook-navigator').move_cell 'u'
-        end,
-      },
-      { '<leader>X', "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
-      { '<leader>x', "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
-    },
-    repl_provider = 'molten',
-    dependencies = {
-      'echasnovski/mini.comment',
-      -- 'hkupty/iron.nvim', -- repl provider
-      -- "akinsho/toggleterm.nvim", -- alternative repl provider
-      'benlubas/molten-nvim', -- alternative repl provider
-      'anuvyklack/hydra.nvim',
-    },
-    event = 'VeryLazy',
-    config = function()
-      local nn = require 'notebook-navigator'
-      vim.g.python3_host_prog = vim.fn.expand '~/.local/nvim-venv/bin/python3'
-      nn.setup { activate_hydra_keys = '<leader>h' }
-    end,
-    opts = {
-      repl_provider = 'iron',
-      cell_markers = {
-        python = '#%%',
-      },
-    },
-  },
-  {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    ft = { 'markdown' },
-    build = function()
-      vim.cmd [[Lazy load markdown-preview.nvim]]
-      vim.fn['mkdp#util#install']()
-    end,
-  },
-  {
-    'echasnovski/mini.hipatterns',
-    event = 'VeryLazy',
-    dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
-    opts = function()
-      local nn = require 'notebook-navigator'
-
-      local opts = { highlighters = { cells = nn.minihipatterns_spec } }
-      return opts
-    end,
-  },
-  {
-    'echasnovski/mini.ai',
-    event = 'VeryLazy',
-    dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
-    opts = function()
-      local nn = require 'notebook-navigator'
-
-      local opts = { custom_textobjects = { h = nn.miniai_spec } }
-      return opts
-    end,
-  },
+  -- {
+  --   'christoomey/vim-tmux-navigator',
+  --   config = function()
+  --     vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>')
+  --     vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>')
+  --     vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>')
+  --     vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>')
+  --   end,
+  -- },
+  -- {
+  --   'danymat/neogen',
+  --   opts = true,
+  --   keys = {
+  --     {
+  --       '<leader>a',
+  --       function()
+  --         require('neogen').generate()
+  --       end,
+  --       desc = 'Add Docstring',
+  --     },
+  --   },
+  -- },
+  -- {
+  --   'GCBallesteros/jupytext.nvim',
+  --   config = function()
+  --     require('jupytext').setup {
+  --       style = 'markdown',
+  --       output_extension = 'md',
+  --       force_ft = 'markdown',
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {},
+  -- },
+  -- {
+  --   'GCBallesteros/NotebookNavigator.nvim',
+  --   keys = {
+  --     {
+  --       ']h',
+  --       function()
+  --         require('notebook-navigator').move_cell 'd'
+  --       end,
+  --     },
+  --     {
+  --       '[h',
+  --       function()
+  --         require('notebook-navigator').move_cell 'u'
+  --       end,
+  --     },
+  --     { '<leader>X', "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
+  --     { '<leader>x', "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
+  --   },
+  --   repl_provider = 'molten',
+  --   dependencies = {
+  --     'echasnovski/mini.comment',
+  --     -- 'hkupty/iron.nvim', -- repl provider
+  --     -- "akinsho/toggleterm.nvim", -- alternative repl provider
+  --     'benlubas/molten-nvim', -- alternative repl provider
+  --     'anuvyklack/hydra.nvim',
+  --   },
+  --   event = 'VeryLazy',
+  --   config = function()
+  --     local nn = require 'notebook-navigator'
+  --     vim.g.python3_host_prog = vim.fn.expand '~/.local/nvim-venv/bin/python3'
+  --     nn.setup { activate_hydra_keys = '<leader>h' }
+  --   end,
+  --   opts = {
+  --     repl_provider = 'iron',
+  --     cell_markers = {
+  --       python = '#%%',
+  --     },
+  --   },
+  -- },
+  -- {
+  --   'iamcco/markdown-preview.nvim',
+  --   cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+  --   ft = { 'markdown' },
+  --   build = function()
+  --     vim.cmd [[Lazy load markdown-preview.nvim]]
+  --     vim.fn['mkdp#util#install']()
+  --   end,
+  -- },
+  -- {
+  --   'echasnovski/mini.hipatterns',
+  --   event = 'VeryLazy',
+  --   dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
+  --   opts = function()
+  --     local nn = require 'notebook-navigator'
+  --
+  --     local opts = { highlighters = { cells = nn.minihipatterns_spec } }
+  --     return opts
+  --   end,
+  -- },
+  -- {
+  --   'echasnovski/mini.ai',
+  --   event = 'VeryLazy',
+  --   dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
+  --   opts = function()
+  --     local nn = require 'notebook-navigator'
+  --
+  --     local opts = { custom_textobjects = { h = nn.miniai_spec } }
+  --     return opts
+  --   end,
+  -- },
   -- {
   --   'Vigemus/iron.nvim',
   --   config = function()
@@ -216,40 +216,40 @@ return {
   --     -- vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
   --   end,
   -- },
-  {
-    'benlubas/molten-nvim',
-    build = ':UpdateRemotePlugins',
-    init = function()
-      -- these are examples, not defaults. Please see the readme
-      vim.g.molten_image_provider = 'image.nvim'
-      vim.g.molten_output_win_max_height = 20
-      vim.g.molten_virt_text_output = false
-      vim.g.python3_host_prog = vim.fn.expand '~/.local/nvim-venv/bin/python3'
-
-      vim.g.molten_auto_init_behavior = 'init'
-      vim.g.molten_enter_output_behavior = 'open_and_enter'
-      -- vim.keymap.set('n', '<localleader>mi', ':MoltenInit<CR>', { silent = true, desc = 'Initialize the plugin' })
-      -- vim.keymap.set('n', '<localleader>r', ':MoltenEvaluateOperator<CR>', { silent = true, desc = 'run operator selection' })
-      -- vim.keymap.set('n', '<localleader>rl', ':MoltenEvaluateLine<CR>', { silent = true, desc = 'evaluate line' })
-      -- vim.keymap.set('n', '<localleader>rr', ':MoltenReevaluateCell<CR>', { silent = true, desc = 're-evaluate cell' })
-      -- vim.keymap.set('v', '<localleader>r', ':<C-u>MoltenEvaluateVisual<CR>gv', { silent = true, desc = 'evaluate visual selection' })
-      vim.keymap.set('n', '<localleader>os', ':noautocmd MoltenEnterOutput<CR>', { silent = true, desc = 'show/enter output' })
-      vim.keymap.set('n', '<localleader>mr', ':MoltenRestart<CR>', { silent = true, desc = '[M]olten [R]estart' })
-      -- -- Dynamic Kernel Initialization based on Python Virtual Environment
-      vim.api.nvim_set_keymap('n', '<localleader>mi', '', {
-        callback = function()
-          local kernel_name = ensure_kernel_for_venv()
-          if kernel_name then
-            vim.cmd(('MoltenInit %s'):format(kernel_name))
-          else
-            vim.notify('No kernel to initialize.', vim.log.levels.WARN)
-          end
-        end,
-        desc = '[m]olten [i]nitialize',
-        silent = true,
-      })
-    end,
-  },
+  -- {
+  --   'benlubas/molten-nvim',
+  --   build = ':UpdateRemotePlugins',
+  --   init = function()
+  --     -- these are examples, not defaults. Please see the readme
+  --     vim.g.molten_image_provider = 'image.nvim'
+  --     vim.g.molten_output_win_max_height = 20
+  --     vim.g.molten_virt_text_output = false
+  --     vim.g.python3_host_prog = vim.fn.expand '~/.local/nvim-venv/bin/python3'
+  --
+  --     vim.g.molten_auto_init_behavior = 'init'
+  --     vim.g.molten_enter_output_behavior = 'open_and_enter'
+  --     -- vim.keymap.set('n', '<localleader>mi', ':MoltenInit<CR>', { silent = true, desc = 'Initialize the plugin' })
+  --     -- vim.keymap.set('n', '<localleader>r', ':MoltenEvaluateOperator<CR>', { silent = true, desc = 'run operator selection' })
+  --     -- vim.keymap.set('n', '<localleader>rl', ':MoltenEvaluateLine<CR>', { silent = true, desc = 'evaluate line' })
+  --     -- vim.keymap.set('n', '<localleader>rr', ':MoltenReevaluateCell<CR>', { silent = true, desc = 're-evaluate cell' })
+  --     -- vim.keymap.set('v', '<localleader>r', ':<C-u>MoltenEvaluateVisual<CR>gv', { silent = true, desc = 'evaluate visual selection' })
+  --     vim.keymap.set('n', '<localleader>os', ':noautocmd MoltenEnterOutput<CR>', { silent = true, desc = 'show/enter output' })
+  --     vim.keymap.set('n', '<localleader>mr', ':MoltenRestart<CR>', { silent = true, desc = '[M]olten [R]estart' })
+  --     -- -- Dynamic Kernel Initialization based on Python Virtual Environment
+  --     vim.api.nvim_set_keymap('n', '<localleader>mi', '', {
+  --       callback = function()
+  --         local kernel_name = ensure_kernel_for_venv()
+  --         if kernel_name then
+  --           vim.cmd(('MoltenInit %s'):format(kernel_name))
+  --         else
+  --           vim.notify('No kernel to initialize.', vim.log.levels.WARN)
+  --         end
+  --       end,
+  --       desc = '[m]olten [i]nitialize',
+  --       silent = true,
+  --     })
+  --   end,
+  -- },
   {
     -- see the image.nvim readme for more information about configuring this plugin
     '3rd/image.nvim',

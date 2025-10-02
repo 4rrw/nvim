@@ -50,47 +50,47 @@ local function ensure_kernel_for_venv()
 end
 
 return {
-  -- {
-  --   'christoomey/vim-tmux-navigator',
-  --   config = function()
-  --     vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>')
-  --     vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>')
-  --     vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>')
-  --     vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>')
-  --   end,
-  -- },
-  -- {
-  --   'danymat/neogen',
-  --   opts = true,
-  --   keys = {
-  --     {
-  --       '<leader>a',
-  --       function()
-  --         require('neogen').generate()
-  --       end,
-  --       desc = 'Add Docstring',
-  --     },
-  --   },
-  -- },
-  -- {
-  --   'GCBallesteros/jupytext.nvim',
-  --   config = function()
-  --     require('jupytext').setup {
-  --       style = 'markdown',
-  --       output_extension = 'md',
-  --       force_ft = 'markdown',
-  --     }
-  --   end,
-  -- },
-  -- {
-  --   'MeanderingProgrammer/render-markdown.nvim',
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-  --   ---@module 'render-markdown'
-  --   ---@type render.md.UserConfig
-  --   opts = {},
-  -- },
+  {
+    'christoomey/vim-tmux-navigator',
+    config = function()
+      vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>')
+      vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>')
+      vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>')
+      vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>')
+    end,
+  },
+  {
+    'danymat/neogen',
+    opts = true,
+    keys = {
+      {
+        '<leader>a',
+        function()
+          require('neogen').generate()
+        end,
+        desc = 'Add Docstring',
+      },
+    },
+  },
+  {
+    'GCBallesteros/jupytext.nvim',
+    config = function()
+      require('jupytext').setup {
+        style = 'markdown',
+        output_extension = 'md',
+        force_ft = 'markdown',
+      }
+    end,
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
   -- {
   --   'GCBallesteros/NotebookNavigator.nvim',
   --   keys = {
@@ -251,7 +251,6 @@ return {
   --   end,
   -- },
   {
-    -- see the image.nvim readme for more information about configuring this plugin
     '3rd/image.nvim',
     opts = {
       backend = 'kitty', -- whatever backend you would like to use

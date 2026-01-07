@@ -11,7 +11,8 @@ return {
       quarto.setup({
         lspFeatures = {
           languages = { "r", "python", "rust" },
-          chunks = "all",
+          chunks = "full",
+          enabled = true,
           diagnostics = {
             enabled = true,
             triggers = { "BufWritePost" },
@@ -28,7 +29,7 @@ return {
         },
         codeRunner = {
           enabled = true,
-          default_method = "molten",
+          default_method = "iron",
         },
       })
 

@@ -9,13 +9,12 @@ return {
       pyrola.setup({
         kernel_map = {
           python = "python3", -- Jupyter kernel name
-          markdown = "python3", -- Jupyter kernel name
         },
         split_horizontal = false,
-        split_ratio = 0.50, -- width of split REPL terminal
+        split_ratio = 0.5, -- width of split REPL terminal
         image = {
-          cell_width = 15, -- approximate terminal cell width in pixels
-          cell_height = 25, -- approximate terminal cell height in pixels
+          cell_width = 10, -- approximate terminal cell width in pixels
+          cell_height = 20, -- approximate terminal cell height in pixels
           max_width_ratio = 0.5, -- image width as a fraction of editor columns
           max_height_ratio = 0.5, -- image height as a fraction of editor lines
           offset_row = 0, -- adjust image row position (cells)
@@ -26,9 +25,9 @@ return {
       -- Default key mappings (adjust to taste)
 
       -- Send semantic code block under cursor
-      -- vim.keymap.set("n", "<CR>", function()
-      --   pyrola.send_statement_definition()
-      -- end, { noremap = true })
+      vim.keymap.set("n", "<CR>", function()
+        pyrola.send_statement_definition()
+      end, { noremap = true })
 
       -- Send visual selection
       vim.keymap.set("v", "<leader>vs", function()
@@ -52,20 +51,20 @@ return {
     end,
   },
 
-  -- -- Tree-sitter is required.
-  -- -- Parsers for languages listed in `kernel_map` must be installed.
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   build = ":TSUpdate",
-  --   config = function()
-  --     local ts = require("nvim-treesitter")
-  --
-  --     ts.setup({
-  --       install_dir = vim.fn.stdpath("data") .. "/site",
-  --     })
-  --
-  --     -- Install required parsers
-  --     ts.install({ "python", "markdown", "lua" })
-  --   end,
-  -- },
+  -- Tree-sitter is required.
+  -- Parsers for languages listed in `kernel_map` must be installed.
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      local ts = require("nvim-treesitter")
+
+      ts.setup({
+        install_dir = vim.fn.stdpath("data") .. "/site",
+      })
+
+      -- Install required parsers
+      ts.install({ "python", "r", "lua" })
+    end,
+  },
 }

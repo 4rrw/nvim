@@ -1,12 +1,15 @@
 return {
   {
-    "dangooddd/pyrepl.nvim",
+    -- "dangooddd/pyrepl.nvim",
+    dir = "~/projects/repos/pyrepl.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       local pyrepl = require("pyrepl")
 
       -- default config
       pyrepl.setup({
+        python_path = "~/.venv_nvim/bin/python",
+        jupyter_path = "python3",
         split_horizontal = false,
         split_ratio = 0.4,
         style = "default",

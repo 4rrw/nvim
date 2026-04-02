@@ -8,8 +8,13 @@ return {
 
       -- default config
       pyrepl.setup({
-        python_path = "~/.venv_nvim/bin/python",
-        jupyter_path = "python3",
+        cell_pattern = function()
+          local ft = vim.bo.filetype
+          if ft == "markdown" or ft == "quarto" then
+            return "^```.*$"
+          end
+          return "^#%s*%%%%.*$"
+        end,
         split_horizontal = false,
         split_ratio = 0.4,
         style = "default",
@@ -20,7 +25,6 @@ return {
         -- built-in provider, works best for ghostty and kitty
         -- for other terminals use "image" provider
         image_provider = "placeholders",
-        cell_pattern = "^#%s*%%%%.*$",
         preferred_kernel = "python3",
         jupytext_hook = true,
       })

@@ -1,6 +1,6 @@
 return {
   {
-    "GCBallesteros/jupytext.nvim",
+    "4rrw/jupytext.nvim",
     opts = {
       style = "markdown",
       output_extension = "md",

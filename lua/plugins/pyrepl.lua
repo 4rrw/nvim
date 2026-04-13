@@ -1,7 +1,7 @@
 return {
   {
-    -- "dangooddd/pyrepl.nvim",
-    dir = "~/projects/repos/pyrepl.nvim",
+    "4rrw/pyrepl.nvim",
+    branch = "feature/auto-install-deps-when-missing",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       local pyrepl = require("pyrepl")

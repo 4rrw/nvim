@@ -7,6 +7,7 @@ vim.opt.laststatus = 3
 vim.opt.scrolloff = 16
 vim.opt.spelllang = { "en", "pl" }
 vim.opt.clipboard = "unnamedplus"
+vim.opt.shiftwidth = 4
 
 if os.getenv("SSH_TTY") then
   vim.g.clipboard = {

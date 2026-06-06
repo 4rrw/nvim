@@ -27,6 +27,7 @@ return {
         image_provider = "placeholders",
         preferred_kernel = "python3",
         jupytext_hook = true,
+        auto_install = "uv",
       })
 
       -- main commands

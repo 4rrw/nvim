@@ -1,12 +1,11 @@
 return {
     {
-        "4rrw/pyrepl.nvim",
+        -- "4rrw/pyrepl.nvim",
+        dir = "~/projects/repos/pyrepl.nvim",
         branch = "feature/auto-install-deps-when-missing",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             local pyrepl = require("pyrepl")
-
-            -- default config
             pyrepl.setup({
                 cell_pattern = function()
                     local ft = vim.bo.filetype

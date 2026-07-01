@@ -2,6 +2,10 @@ return {
     {
         "folke/snacks.nvim",
         opts = {
+            -- Render images and LaTeX math inline in markdown buffers (same
+            -- renderer the picker preview already uses). Needs a kitty-graphics
+            -- terminal (ghostty ✓) plus magick + a LaTeX engine for math.
+            image = { enabled = true },
             scroll = {
                 enabled = true,
                 animate = {
@@ -17,6 +21,11 @@ return {
             },
             picker = {
                 sources = {
+                    files = {
+                        -- Show .env files even though they're hidden/gitignored.
+                        -- `include` takes precedence over exclude/ignored/hidden.
+                        include = { ".env", ".env.*" },
+                    },
                     explorer = {
                         auto_close = true,
                         hidden = true,
